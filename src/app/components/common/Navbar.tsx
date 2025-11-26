@@ -20,34 +20,31 @@ export default function Navbar() {
 	const pathname = usePathname();
 
 	useEffect(() => {
-		function handleScroll() {
-			setScrolled(window.scrollY > 10);
-		}
+		const handleScroll = () => setScrolled(window.scrollY > 10);
 		handleScroll();
 		window.addEventListener("scroll", handleScroll);
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
-	// Close menu on route change
 	useEffect(() => {
 		setMenuOpen(false);
 	}, [pathname]);
 
-	const solidBackground = scrolled || menuOpen; // solid when scrolled OR mobile open
+	const solidBackground = scrolled || menuOpen;
 
 	return (
 		<header
-			className={`fixed inset-x-0 top-0 z-50  h-16 md:h-24 transition-all duration-300 ${
+			className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
 				solidBackground
 					? "bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-[0_8px_24px_rgba(15,23,42,0.06)]"
-					: "bg-transparent border-b border-transparent backdrop-blur-none shadow-none"
+					: "bg-transparent border-b border-transparent"
 			}`}>
 			<motion.div
 				initial={{ y: -24, opacity: 0 }}
 				animate={{ y: 0, opacity: 1 }}
 				transition={{ type: "spring", stiffness: 120, damping: 18 }}
-				className=" h-full flex max-w-7xl items-center justify-between">
-				{/* Logo Section */}
+				className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-20 sm:px-6 lg:h-24 lg:px-8">
+				{/* Logo */}
 				<Link
 					href="/"
 					className="relative flex items-center gap-3 group"
@@ -55,9 +52,9 @@ export default function Navbar() {
 					<motion.div
 						whileHover={{ scale: 1.04, rotate: -0.5 }}
 						whileTap={{ scale: 0.98 }}
-						className="relative flex h-16 w-32 items-center justify-start">
+						className="relative flex h-10 w-28 items-center justify-start sm:h-12 sm:w-32 md:h-16 md:w-40">
 						<div className="absolute inset-0 rounded-3xl bg-[#447f80]/10 blur-xl group-hover:bg-[#447f80]/20 transition-all" />
-						<div className="relative h-16 w-36 flex items-center justify-start">
+						<div className="relative h-full w-full flex items-center justify-start">
 							<Image
 								src="https://res.cloudinary.com/djthwunnh/image/upload/v1764150280/logo-web-1_miqcdh.png"
 								alt="Kasa Interiors Logo"
@@ -86,13 +83,13 @@ export default function Navbar() {
 									className="relative">
 									<Link
 										href={link.href}
-										className={`group inline-flex flex-col items-center text-xs font-bold uppercase tracking-[0.22em] ${
-											solidBackground ? "text-black" : "text-white"
+										className={`group inline-flex flex-col items-center text-[0.68rem] font-semibold uppercase tracking-[0.22em] ${
+											solidBackground ? "text-slate-900" : "text-white"
 										}`}>
 										<span
 											className={`transition-colors ${
 												isActive
-													? "" // keep base color from parent
+													? ""
 													: solidBackground
 													? "group-hover:text-[#447f80]"
 													: "group-hover:text-slate-100"
@@ -115,21 +112,21 @@ export default function Navbar() {
 						})}
 					</ul>
 
-					{/* CTA Button (stays teal on both backgrounds) */}
+					{/* CTA */}
 					<Link href="/contact" className="relative ml-4">
 						<motion.button
 							type="button"
 							whileHover={{ scale: 1.04, y: -1 }}
 							whileTap={{ scale: 0.97 }}
-							className="group inline-flex items-center gap-2 rounded-full border border-[#447f80] bg-[#447f80] px-5 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-white shadow-[0_10px_30px_rgba(68,127,128,0.45)]">
+							className="group inline-flex items-center gap-2 rounded-full border border-[#447f80] bg-[#447f80] px-5 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-white shadow-[0_10px_30px_rgba(68,127,128,0.45)]">
 							<span>Book Consultation</span>
 							<motion.span
 								initial={{ x: 0 }}
 								whileHover={{ x: 2 }}
-								className="text-[0.7rem]">
+								className="text-[0.75rem]">
 								↗
 							</motion.span>
-							<span className="pointer-events-none absolute inset-0 rounded-full border border-white/40 opacity-0 group-hover:opacity-70 group-hover:border-white/60 transition" />
+							<span className="pointer-events-none absolute inset-0 rounded-full border border-white/40 opacity-0 transition group-hover:border-white/60 group-hover:opacity-70" />
 						</motion.button>
 					</Link>
 				</nav>
@@ -137,7 +134,7 @@ export default function Navbar() {
 				{/* Mobile Menu Button */}
 				<button
 					type="button"
-					className="relative flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-900 lg:hidden shadow-sm"
+					className="relative flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-900 shadow-sm lg:hidden"
 					onClick={() => setMenuOpen((prev) => !prev)}
 					aria-label="Toggle navigation menu">
 					<AnimatePresence mode="wait">
@@ -166,7 +163,7 @@ export default function Navbar() {
 				</button>
 			</motion.div>
 
-			{/* Mobile Menu Overlay (white background dropdown) */}
+			{/* Mobile Dropdown */}
 			<AnimatePresence>
 				{menuOpen && (
 					<motion.div
@@ -176,7 +173,7 @@ export default function Navbar() {
 						transition={{ duration: 0.25 }}
 						className="lg:hidden">
 						<div className="border-t border-slate-200 bg-white/98 backdrop-blur-xl">
-							<nav className="mx-auto max-w-7xl px-4 py-4 md:px-6 lg:px-8">
+							<nav className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
 								<ul className="flex flex-col gap-2">
 									{navLinks.map((link, idx) => {
 										const isActive =
@@ -193,7 +190,7 @@ export default function Navbar() {
 												transition={{ delay: idx * 0.04 }}>
 												<Link
 													href={link.href}
-													className={`flex items-center justify-between rounded-xl border px-4 py-3 text-[0.72rem] font-medium tracking-[0.18em] uppercase ${
+													className={`flex items-center justify-between rounded-xl border px-4 py-3 text-[0.72rem] font-medium uppercase tracking-[0.18em] ${
 														isActive
 															? "border-[#447f80] bg-[#e6f0f0] text-[#447f80]"
 															: "border-slate-200 bg-white text-slate-600 hover:border-[#447f80] hover:bg-[#f1f6f6] hover:text-[#447f80]"
@@ -208,7 +205,6 @@ export default function Navbar() {
 									})}
 								</ul>
 
-								{/* Mobile CTA */}
 								<div className="mt-4">
 									<Link href="/contact">
 										<motion.div

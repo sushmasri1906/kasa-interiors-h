@@ -88,8 +88,8 @@ export default function HeroCarousel() {
 	const goPrev = () => goTo(index - 1);
 
 	return (
-		<section className="relative h-[90vh] min-h-[600px] w-full overflow-hidden bg-black text-white">
-			{/* Glassy border around whole hero for a premium feel */}
+		<section className="relative h-[80vh] min-h-[520px] w-full overflow-hidden bg-black text-white sm:h-[85vh] md:h-[90vh]">
+			{/* Glassy border */}
 			<div className="pointer-events-none absolute inset-0 border-b border-white/10" />
 
 			<AnimatePresence custom={direction} mode="wait">
@@ -100,7 +100,7 @@ export default function HeroCarousel() {
 					initial="enter"
 					animate="center"
 					exit="exit"
-					className="absolute inset-0  pt-16 md:pt-24">
+					className="absolute inset-0 pt-20 sm:pt-24 md:pt-24">
 					{/* Background image */}
 					<div className="absolute inset-0">
 						<Image
@@ -110,14 +110,13 @@ export default function HeroCarousel() {
 							priority
 							className="object-cover"
 						/>
-						{/* Gradient overlay */}
-						<div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/55 to-black/20" />
-						{/* Accent vignette */}
-						<div className="pointer-events-none absolute inset-y-10 left-10 right-1/3 translate-y-4 rounded-[3rem] border border-white/10 bg-linear-to-br from-white/5 via-transparent to-[#447f80]/10" />
+						<div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/20" />
+						{/* Accent vignette only on lg+ */}
+						<div className="pointer-events-none absolute inset-y-10 left-6 right-6 translate-y-4 rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-white/5 via-transparent to-[#447f80]/10 lg:left-10 lg:right-1/3 lg:rounded-[3rem] lg:block hidden" />
 					</div>
 
 					{/* Content */}
-					<div className="relative z-10 mx-auto flex h-full max-w-7xl items-center justify-between px-4 md:px-6 lg:px-8">
+					<div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-start justify-center gap-10 px-4 pb-16 sm:px-6 md:flex-row md:items-center md:justify-between md:pb-10 lg:px-8">
 						{/* Left: Text */}
 						<div className="max-w-xl space-y-6">
 							<div className="inline-flex items-center gap-3 rounded-full bg-black/40 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.32em] text-slate-100/85 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
@@ -125,7 +124,7 @@ export default function HeroCarousel() {
 								<span>Kasa Interiors · {current.tag}</span>
 							</div>
 
-							<h1 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl lg:text-[3.2rem]">
+							<h1 className="text-balance text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl lg:text-[3.2rem]">
 								<span className="font-serif leading-tight">
 									{current.title.split(" ").slice(0, 2).join(" ")}
 								</span>{" "}
@@ -138,12 +137,12 @@ export default function HeroCarousel() {
 								{current.subtitle}
 							</p>
 
-							<div className="flex flex-wrap items-center gap-4 pt-1">
+							<div className="flex flex-wrap items-center gap-3 pt-1">
 								<Link href="/contact">
 									<motion.button
 										whileHover={{ scale: 1.05, y: -2 }}
 										whileTap={{ scale: 0.97 }}
-										className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-2.5 text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-slate-900 shadow-[0_14px_40px_rgba(0,0,0,0.55)]">
+										className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-slate-900 shadow-[0_14px_40px_rgba(0,0,0,0.55)] sm:px-6 sm:text-[0.75rem]">
 										<span>Start Your Project</span>
 										<motion.span
 											initial={{ x: 0 }}
@@ -159,21 +158,20 @@ export default function HeroCarousel() {
 									<motion.button
 										whileHover={{ scale: 1.03, y: -1 }}
 										whileTap={{ scale: 0.97 }}
-										className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-black/20 px-5 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-slate-50 hover:border-[#d1f3f2] hover:bg-white/10 transition">
+										className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-black/20 px-4 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-slate-50 transition hover:border-[#d1f3f2] hover:bg-white/10 sm:px-5">
 										View Portfolio
 									</motion.button>
 								</Link>
 							</div>
 
-							{/* small subline */}
-							<div className="flex items-center gap-3 pt-3 text-[0.7rem] text-slate-200/80">
-								<div className="h-px w-10 bg-linear-to-r from-transparent via-white/50 to-transparent" />
+							<div className="flex flex-wrap items-center gap-3 pt-3 text-[0.68rem] text-slate-200/80 sm:text-[0.72rem]">
+								<div className="h-px w-10 bg-gradient-to-r from-transparent via-white/50 to-transparent" />
 								<p>Homes · Apartments · Commercial Interiors across AP & TS</p>
 							</div>
 						</div>
 
 						{/* Right: Floating cards (md+) */}
-						<div className="relative hidden h-full flex-1 items-center justify-center md:flex">
+						<div className="relative hidden h-[260px] flex-1 items-center justify-center md:flex lg:h-[320px]">
 							{/* Top card */}
 							<motion.div
 								initial={{ opacity: 0, y: -10, x: 40 }}
@@ -183,8 +181,9 @@ export default function HeroCarousel() {
 									y: [-40, -52, -40],
 								}}
 								transition={{
-									duration: 2.5,
+									duration: 3,
 									ease: "easeInOut",
+									repeat: Infinity,
 									repeatType: "mirror",
 									delay: 0.2,
 								}}
@@ -193,14 +192,14 @@ export default function HeroCarousel() {
 									boxShadow: "0 24px 70px rgba(0,0,0,0.7)",
 									borderColor: ACCENT,
 								}}
-								className="relative h-52 w-80 overflow-hidden rounded-[26px] border border-white/40 bg-black/40 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md">
+								className="relative h-44 w-64 overflow-hidden rounded-[24px] border border-white/40 bg-black/40 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md sm:h-48 sm:w-72 lg:h-52 lg:w-80">
 								<Image
 									src={current.card1.image}
 									alt={current.card1.label}
 									fill
 									className="object-cover"
 								/>
-								<div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent" />
+								<div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
 								<div className="absolute bottom-3 left-3 flex items-center gap-2 rounded-full bg-black/70 px-3 py-1 text-[0.7rem] font-medium">
 									<span className="h-1.5 w-1.5 rounded-full bg-[#d1f3f2]" />
 									<span>{current.card1.label}</span>
@@ -216,8 +215,9 @@ export default function HeroCarousel() {
 									y: [40, 28, 40],
 								}}
 								transition={{
-									duration: 2.5,
+									duration: 3,
 									ease: "easeInOut",
+									repeat: Infinity,
 									repeatType: "mirror",
 									delay: 0.5,
 								}}
@@ -226,14 +226,14 @@ export default function HeroCarousel() {
 									boxShadow: "0 24px 70px rgba(0,0,0,0.8)",
 									borderColor: ACCENT,
 								}}
-								className="relative h-48 w-72 overflow-hidden rounded-3xl border border-white/35 bg-black/45 shadow-[0_18px_55px_rgba(0,0,0,0.75)] backdrop-blur-md">
+								className="absolute bottom-0 left-0 h-40 w-60 overflow-hidden rounded-3xl border border-white/35 bg-black/45 shadow-[0_18px_55px_rgba(0,0,0,0.75)] backdrop-blur-md sm:h-44 sm:w-64 lg:h-48 lg:w-72">
 								<Image
 									src={current.card2.image}
 									alt={current.card2.label}
 									fill
 									className="object-cover"
 								/>
-								<div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent" />
+								<div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
 								<div className="absolute bottom-3 left-3 flex items-center gap-2 rounded-full bg-black/70 px-3 py-1 text-[0.7rem] font-medium">
 									<span className="h-1.5 w-1.5 rounded-full bg-[#d1f3f2]" />
 									<span>{current.card2.label}</span>
@@ -245,37 +245,35 @@ export default function HeroCarousel() {
 			</AnimatePresence>
 
 			{/* Controls & dots */}
-			<div className="pointer-events-none absolute inset-x-0 bottom-6 z-20 flex items-center justify-between px-4 md:px-6 lg:px-8">
+			<div className="pointer-events-none absolute inset-x-0 bottom-4 z-20 flex items-center justify-between px-4 sm:bottom-6 sm:px-6 lg:px-8">
 				{/* Arrows */}
 				<div className="pointer-events-auto flex gap-2">
 					<button
 						onClick={goPrev}
-						className="flex h-9 w-9 items-center justify-center rounded-full border border-white/60 bg-black/40 text-sm text-white shadow-[0_10px_30px_rgba(0,0,0,0.6)] hover:bg-[#447f80] hover:border-[#447f80] transition">
+						className="flex h-8 w-8 items-center justify-center rounded-full border border-white/60 bg-black/40 text-xs text-white shadow-[0_10px_30px_rgba(0,0,0,0.6)] transition hover:bg-[#447f80] hover:border-[#447f80] sm:h-9 sm:w-9 sm:text-sm">
 						‹
 					</button>
 					<button
 						onClick={goNext}
-						className="flex h-9 w-9 items-center justify-center rounded-full border border-white/60 bg-black/40 text-sm text-white shadow-[0_10px_30px_rgba(0,0,0,0.6)] hover:bg-[#447f80] hover:border-[#447f80] transition">
+						className="flex h-8 w-8 items-center justify-center rounded-full border border-white/60 bg-black/40 text-xs text-white shadow-[0_10px_30px_rgba(0,0,0,0.6)] transition hover:bg-[#447f80] hover:border-[#447f80] sm:h-9 sm:w-9 sm:text-sm">
 						›
 					</button>
 				</div>
 
-				{/* Dots + accent progress feel */}
-				<div className="pointer-events-auto flex items-center gap-3">
-					<div className="flex items-center gap-2">
-						{slides.map((s, i) => (
-							<button
-								key={s.id}
-								onClick={() => goTo(i)}
-								className={`h-2 rounded-full transition ${
-									i === index
-										? "w-6 bg-[#447f80]"
-										: "w-2 bg-white/50 hover:bg-white/80"
-								}`}
-								aria-label={`Go to slide ${i + 1}`}
-							/>
-						))}
-					</div>
+				{/* Dots */}
+				<div className="pointer-events-auto flex items-center gap-2 sm:gap-3">
+					{slides.map((s, i) => (
+						<button
+							key={s.id}
+							onClick={() => goTo(i)}
+							className={`h-2 rounded-full transition ${
+								i === index
+									? "w-6 bg-[#447f80]"
+									: "w-2 bg-white/50 hover:bg-white/80"
+							}`}
+							aria-label={`Go to slide ${i + 1}`}
+						/>
+					))}
 				</div>
 			</div>
 		</section>
