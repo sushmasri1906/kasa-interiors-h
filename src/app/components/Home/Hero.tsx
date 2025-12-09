@@ -1,280 +1,317 @@
+// "use client";
+
+// import { motion, AnimatePresence, type Variants } from "framer-motion";
+// import Image from "next/image";
+// import Link from "next/link";
+// import { useEffect, useState } from "react";
+
+// const slides = [
+// 	{
+// 		id: 0,
+// 		title: `"YOUR HOME. YOUR STORY. OUR DESIGN"`,
+// 		subtitle:
+// 			"We design interiors that feel personal, warm, and unforgettable.",
+// 		image:
+// 			"https://res.cloudinary.com/djthwunnh/image/upload/v1764151955/villa-HD_ywgpac.jpg",
+// 	},
+// 	{
+// 		id: 1,
+// 		title: `"DESIGNS THAT FEEL LIKE YOU"`,
+// 		subtitle:
+// 			"Modern, functional and timeless interiors built around your lifestyle.",
+// 		image:
+// 			"https://res.cloudinary.com/djthwunnh/image/upload/v1764151915/pexels-dayvison-de-oliveira-silva-5733617-1920x1280_ckthe0.jpg",
+// 	},
+// 	{
+// 		id: 2,
+// 		title: `"SPACES THAT INSPIRE EVERY DAY"`,
+// 		subtitle:
+// 			"Elegant workspaces & commercial interiors that elevate your brand.",
+// 		image:
+// 			"https://res.cloudinary.com/djthwunnh/image/upload/v1764151940/office_tidjvy.jpg",
+// 	},
+// ];
+
+// const slideVariants: Variants = {
+// 	enter: {
+// 		x: "100%",
+// 		y: 30,
+// 		opacity: 1,
+// 	},
+// 	center: {
+// 		x: "0%",
+// 		y: 0,
+// 		opacity: 1,
+// 		transition: { duration: 3, ease: "easeOut" as const },
+// 	},
+// 	exit: {
+// 		x: "-100%",
+// 		y: -20,
+// 		opacity: 1,
+// 		transition: { duration: 3, ease: "easeIn" as const },
+// 	},
+// };
+
+// const textFadeUp: Variants = {
+// 	hidden: { opacity: 0, y: 40 },
+// 	visible: {
+// 		opacity: 1,
+// 		y: 0,
+// 		transition: {
+// 			duration: 1.5,
+// 			ease: "easeOut" as const,
+// 		},
+// 	},
+// 	exit: {
+// 		opacity: 0,
+// 		y: -40,
+// 		transition: {
+// 			duration: 1.5,
+// 			ease: "easeIn" as const,
+// 		},
+// 	},
+// };
+
+// export default function HeroBanner() {
+// 	const [index, setIndex] = useState(0);
+
+// 	useEffect(() => {
+// 		const interval = setInterval(
+// 			() => setIndex((prev) => (prev + 1) % slides.length),
+// 			6000
+// 		);
+// 		return () => clearInterval(interval);
+// 	}, []);
+
+// 	const current = slides[index];
+
+// 	return (
+// 		<section className="relative w-full overflow-hidden min-h-screen">
+// 			<AnimatePresence initial={false} mode="wait">
+// 				<motion.div
+// 					key={current.id}
+// 					variants={slideVariants}
+// 					initial="enter"
+// 					animate="center"
+// 					exit="exit"
+// 					className="absolute inset-0">
+// 					<Image
+// 						src={current.image}
+// 						alt="Interior Banner"
+// 						fill
+// 						className="object-cover"
+// 						priority
+// 					/>
+// 				</motion.div>
+// 			</AnimatePresence>
+
+// 			<div
+// 				className="
+// 					relative z-20 h-full
+// 					flex items-center
+// 					px-5 sm:px-10 md:px-20 lg:px-28 top-60
+// 				">
+// 				<motion.div
+// 					key={current.title}
+// 					initial="hidden"
+// 					animate="visible"
+// 					exit="exit"
+// 					variants={textFadeUp}
+// 					className="max-w-2xl text-white">
+// 					<h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight drop-shadow-xl">
+// 						{current.title}
+// 					</h1>
+
+// 					<p className="mt-4 text-sm sm:text-base md:text-lg opacity-90 max-w-lg drop-shadow-md">
+// 						{current.subtitle}
+// 					</p>
+
+// 					<Link href="/gallery">
+// 						<motion.button
+// 							whileHover={{ scale: 1.05 }}
+// 							whileTap={{ scale: 0.95 }}
+// 							className="mt-6 px-7 py-3 bg-white text-black text-sm font-semibold rounded-full shadow-xl">
+// 							See Our Latest Makeovers →
+// 						</motion.button>
+// 					</Link>
+// 				</motion.div>
+// 			</div>
+
+// 			{/* Right-side dots */}
+// 			<div className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 flex flex-col gap-2 z-30">
+// 				{slides.map((s, i) => (
+// 					<button
+// 						key={s.id}
+// 						onClick={() => setIndex(i)}
+// 						className={`h-2.5 w-2.5 rounded-full transition ${
+// 							i === index ? "bg-white" : "bg-white/40"
+// 						}`}
+// 					/>
+// 				))}
+// 			</div>
+// 		</section>
+// 	);
+// }
+
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-
-const ACCENT = "#447f80";
-
-const HOMES_URL =
-	"https://res.cloudinary.com/djthwunnh/image/upload/v1764151955/villa-HD_ywgpac.jpg";
-const APARTMENTS_URL =
-	"https://res.cloudinary.com/djthwunnh/image/upload/v1764151915/pexels-dayvison-de-oliveira-silva-5733617-1920x1280_ckthe0.jpg";
-const COMMERCIAL_URL =
-	"https://res.cloudinary.com/djthwunnh/image/upload/v1764151940/office_tidjvy.jpg";
+import { useEffect, useState } from "react";
 
 const slides = [
 	{
 		id: 0,
-		tag: "Homes & Villas",
-		title: "Crafting spaces that inspire & endure.",
-		subtitle: "Premium interiors for homes, villas & private residences.",
-		mainImage: HOMES_URL,
-		card1: { label: "Apartments", image: APARTMENTS_URL },
-		card2: { label: "Commercial & Offices", image: COMMERCIAL_URL },
+		title: `"YOUR HOME. YOUR STORY. OUR DESIGN"`,
+		subtitle:
+			"We design interiors that feel personal, warm, and unforgettable.",
+		image:
+			"https://res.cloudinary.com/djthwunnh/image/upload/v1764151955/villa-HD_ywgpac.jpg",
 	},
 	{
 		id: 1,
-		tag: "Apartments",
-		title: "Thoughtful design for modern city living.",
-		subtitle: "Space-smart interiors for 2BHK, 3BHK & duplex apartments.",
-		mainImage: APARTMENTS_URL,
-		card1: { label: "Homes & Villas", image: HOMES_URL },
-		card2: { label: "Commercial & Offices", image: COMMERCIAL_URL },
+		title: `"DESIGNS THAT FEEL LIKE YOU"`,
+		subtitle:
+			"Modern, functional and timeless interiors built around your lifestyle.",
+		image:
+			"https://res.cloudinary.com/djthwunnh/image/upload/v1764151915/pexels-dayvison-de-oliveira-silva-5733617-1920x1280_ckthe0.jpg",
 	},
 	{
 		id: 2,
-		tag: "Commercial & Offices",
-		title: "Workspaces that look sharp & perform well.",
-		subtitle: "Clean, focused environments for teams, clients & brands.",
-		mainImage: COMMERCIAL_URL,
-		card1: { label: "Homes & Villas", image: HOMES_URL },
-		card2: { label: "Apartments", image: APARTMENTS_URL },
+		title: `"SPACES THAT INSPIRE EVERY DAY"`,
+		subtitle:
+			"Elegant workspaces & commercial interiors that elevate your brand.",
+		image:
+			"https://res.cloudinary.com/djthwunnh/image/upload/v1764151940/office_tidjvy.jpg",
 	},
 ];
 
 const slideVariants: Variants = {
-	enter: (direction: number) => ({
+	enter: {
+		x: "100%",
 		opacity: 0,
-		x: direction > 0 ? 60 : -60,
-		scale: 0.98,
-	}),
-	center: {
-		opacity: 1,
-		x: 0,
-		scale: 1,
-		transition: { duration: 0.7, ease: "easeOut" },
 	},
-	exit: (direction: number) => ({
+	center: {
+		x: "0%",
+		opacity: 1,
+		transition: { duration: 3, ease: "linear" },
+	},
+	exit: {
+		x: "-100%",
 		opacity: 0,
-		x: direction > 0 ? -60 : 60,
-		scale: 0.98,
-		transition: { duration: 0.45, ease: "easeIn" },
-	}),
+		transition: { duration: 3, ease: "linear" },
+	},
 };
 
-export default function HeroCarousel() {
-	const [index, setIndex] = useState(0);
-	const [direction, setDirection] = useState(1);
+const textFadeUp: Variants = {
+	hidden: { opacity: 0, y: 40 },
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: {
+			duration: 1,
+			ease: "linear",
+		},
+	},
+	exit: {
+		opacity: 0,
+		y: -30,
+		transition: {
+			duration: 1,
+			ease: "linear",
+		},
+	},
+};
 
-	const current = slides[index];
+export default function HeroBanner() {
+	const [index, setIndex] = useState(0);
+	const [showText, setShowText] = useState(false);
 
 	useEffect(() => {
-		const interval = setInterval(() => {
-			setDirection(1);
-			setIndex((prev) => (prev + 1) % slides.length);
-		}, 7000);
+		const interval = setInterval(
+			() => setIndex((prev) => (prev + 1) % slides.length),
+			8000
+		);
 		return () => clearInterval(interval);
 	}, []);
 
-	const goTo = (nextIndex: number) => {
-		if (nextIndex === index) return;
-		setDirection(nextIndex > index ? 1 : -1);
-		setIndex((nextIndex + slides.length) % slides.length);
-	};
+	// Whenever slide index changes, hide text first.
+	useEffect(() => {
+		setShowText(false);
+	}, [index]);
 
-	const goNext = () => goTo(index + 1);
-	const goPrev = () => goTo(index - 1);
+	const current = slides[index];
 
 	return (
-		<section className="relative h-[80vh] min-h-[520px] w-full overflow-hidden bg-black text-white sm:h-[85vh] md:h-[90vh]">
-			{/* Glassy border */}
-			<div className="pointer-events-none absolute inset-0 border-b border-white/10" />
-
-			<AnimatePresence custom={direction} mode="wait">
+		<section className="relative w-full min-h-screen overflow-hidden bg-black">
+			{/* Background slides */}
+			<AnimatePresence initial={false}>
 				<motion.div
 					key={current.id}
-					custom={direction}
 					variants={slideVariants}
 					initial="enter"
 					animate="center"
 					exit="exit"
-					className="absolute inset-0 pt-20 sm:pt-24 md:pt-24">
-					{/* Background image */}
-					<div className="absolute inset-0">
-						<Image
-							src={current.mainImage}
-							alt={current.tag}
-							fill
-							priority
-							className="object-cover"
-						/>
-						<div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/55 to-black/20" />
-						{/* Accent vignette only on lg+ */}
-						<div className="pointer-events-none absolute inset-y-10 left-6 right-6 translate-y-4 rounded-[2.5rem] border border-white/10 bg-linear-to-br from-white/5 via-transparent to-[#447f80]/10 lg:left-10 lg:right-1/3 lg:rounded-[3rem] lg:block hidden" />
-					</div>
-
-					{/* Content */}
-					<div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-start justify-center gap-10 px-4 pb-16 sm:px-6 md:flex-row md:items-center md:justify-between md:pb-10 lg:px-8">
-						{/* Left: Text */}
-						<div className="max-w-xl space-y-6">
-							<div className="inline-flex items-center gap-3 rounded-full bg-black/40 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.32em] text-slate-100/85 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-								<span className="h-1.5 w-1.5 rounded-full bg-[#d1f3f2]" />
-								<span>Kasa Interiors · {current.tag}</span>
-							</div>
-
-							<h1 className="text-balance text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl lg:text-[3.2rem]">
-								<span className="font-serif leading-tight">
-									{current.title.split(" ").slice(0, 2).join(" ")}
-								</span>{" "}
-								<span className="font-serif italic text-[#e8f7f6]">
-									{current.title.split(" ").slice(2).join(" ")}
-								</span>
-							</h1>
-
-							<p className="max-w-md text-sm text-slate-100/85 sm:text-base">
-								{current.subtitle}
-							</p>
-
-							<div className="flex flex-wrap items-center gap-3 pt-1">
-								<Link href="/contact">
-									<motion.button
-										whileHover={{ scale: 1.05, y: -2 }}
-										whileTap={{ scale: 0.97 }}
-										className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-slate-900 shadow-[0_14px_40px_rgba(0,0,0,0.55)] sm:px-6 sm:text-[0.75rem]">
-										<span>Start Your Project</span>
-										<motion.span
-											initial={{ x: 0 }}
-											whileHover={{ x: 3 }}
-											className="text-[0.85rem]"
-											style={{ color: ACCENT }}>
-											↗
-										</motion.span>
-									</motion.button>
-								</Link>
-
-								<Link href="/gallery">
-									<motion.button
-										whileHover={{ scale: 1.03, y: -1 }}
-										whileTap={{ scale: 0.97 }}
-										className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-black/20 px-4 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-slate-50 transition hover:border-[#d1f3f2] hover:bg-white/10 sm:px-5">
-										View Portfolio
-									</motion.button>
-								</Link>
-							</div>
-
-							<div className="flex flex-wrap items-center gap-3 pt-3 text-[0.68rem] text-slate-200/80 sm:text-[0.72rem]">
-								<div className="h-px w-10 bg-linear-to-r from-transparent via-white/50 to-transparent" />
-								<p>Homes · Apartments · Commercial Interiors across AP & TS</p>
-							</div>
-						</div>
-
-						{/* Right: Floating cards (md+) */}
-						<div className="relative hidden h-[260px] flex-1 items-center justify-center md:flex lg:h-[280px]">
-							{/* Top card */}
-							<motion.div
-								initial={{ opacity: 0, y: -10, x: 40 }}
-								animate={{
-									opacity: 1,
-									x: 26,
-									y: [-40, -52, -40],
-								}}
-								transition={{
-									duration: 3,
-									ease: "easeInOut",
-									repeat: Infinity,
-									repeatType: "mirror",
-									delay: 0.2,
-								}}
-								whileHover={{
-									scale: 1.03,
-									boxShadow: "0 24px 70px rgba(0,0,0,0.7)",
-									borderColor: ACCENT,
-								}}
-								className="relative h-44 w-64 overflow-hidden rounded-3xl border border-white/40 bg-black/40 shadow-[0_18px_55px_rgba(0,0,0,0.65)] backdrop-blur-md sm:h-48 sm:w-72 lg:h-52 lg:w-80">
-								<Image
-									src={current.card1.image}
-									alt={current.card1.label}
-									fill
-									className="object-cover"
-								/>
-								<div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent" />
-								<div className="absolute bottom-3 left-3 flex items-center gap-2 rounded-full bg-black/70 px-3 py-1 text-[0.7rem] font-medium">
-									<span className="h-1.5 w-1.5 rounded-full bg-[#d1f3f2]" />
-									<span>{current.card1.label}</span>
-								</div>
-							</motion.div>
-
-							{/* Bottom card */}
-							<motion.div
-								initial={{ opacity: 0, y: 20, x: -10 }}
-								animate={{
-									opacity: 1,
-									x: -16,
-									y: [40, 28, 40],
-								}}
-								transition={{
-									duration: 3,
-									ease: "easeInOut",
-									repeat: Infinity,
-									repeatType: "mirror",
-									delay: 0.5,
-								}}
-								whileHover={{
-									scale: 1.03,
-									boxShadow: "0 24px 70px rgba(0,0,0,0.8)",
-									borderColor: ACCENT,
-								}}
-								className="absolute bottom-0 left-0 h-40 w-60 overflow-hidden rounded-3xl border border-white/35 bg-black/45 shadow-[0_18px_55px_rgba(0,0,0,0.75)] backdrop-blur-md sm:h-44 sm:w-64 lg:h-48 lg:w-72">
-								<Image
-									src={current.card2.image}
-									alt={current.card2.label}
-									fill
-									className="object-cover"
-								/>
-								<div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent" />
-								<div className="absolute bottom-3 left-3 flex items-center gap-2 rounded-full bg-black/70 px-3 py-1 text-[0.7rem] font-medium">
-									<span className="h-1.5 w-1.5 rounded-full bg-[#d1f3f2]" />
-									<span>{current.card2.label}</span>
-								</div>
-							</motion.div>
-						</div>
-					</div>
+					className="absolute inset-0"
+					// When the slide finishes animating into "center",
+					// we trigger the text to appear/animate.
+					onAnimationComplete={() => {
+						setShowText(true);
+					}}>
+					<Image
+						src={current.image}
+						alt="Interior Banner"
+						fill
+						className="object-cover"
+						priority
+					/>
 				</motion.div>
 			</AnimatePresence>
 
-			{/* Controls & dots */}
-			<div className="pointer-events-none absolute inset-x-0 bottom-4 z-20 flex items-center justify-between px-4 sm:bottom-6 sm:px-6 lg:px-8">
-				{/* Arrows */}
-				<div className="pointer-events-auto flex gap-2">
-					<button
-						onClick={goPrev}
-						className="flex h-8 w-8 items-center justify-center rounded-full border border-white/60 bg-black/40 text-xs text-white shadow-[0_10px_30px_rgba(0,0,0,0.6)] transition hover:bg-[#447f80] hover:border-[#447f80] sm:h-9 sm:w-9 sm:text-sm">
-						‹
-					</button>
-					<button
-						onClick={goNext}
-						className="flex h-8 w-8 items-center justify-center rounded-full border border-white/60 bg-black/40 text-xs text-white shadow-[0_10px_30px_rgba(0,0,0,0.6)] transition hover:bg-[#447f80] hover:border-[#447f80] sm:h-9 sm:w-9 sm:text-sm">
-						›
-					</button>
-				</div>
+			{/* Content overlay */}
+			<div className="relative z-20 flex min-h-screen items-center px-5 sm:px-10 md:px-20 lg:px-28">
+				<AnimatePresence mode="wait">
+					{showText && (
+						<motion.div
+							key={current.id}
+							initial="hidden"
+							animate="visible"
+							exit="exit"
+							variants={textFadeUp}
+							className="max-w-2xl text-white">
+							<h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight drop-shadow-xl">
+								{current.title}
+							</h1>
 
-				{/* Dots */}
-				<div className="pointer-events-auto flex items-center gap-2 sm:gap-3">
-					{slides.map((s, i) => (
-						<button
-							key={s.id}
-							onClick={() => goTo(i)}
-							className={`h-2 rounded-full transition ${
-								i === index
-									? "w-6 bg-[#447f80]"
-									: "w-2 bg-white/50 hover:bg-white/80"
-							}`}
-							aria-label={`Go to slide ${i + 1}`}
-						/>
-					))}
-				</div>
+							<p className="mt-4 text-sm sm:text-base md:text-lg opacity-90 max-w-lg drop-shadow-md">
+								{current.subtitle}
+							</p>
+
+							<Link href="/gallery">
+								<motion.button
+									whileHover={{ scale: 1.05 }}
+									whileTap={{ scale: 0.95 }}
+									className="mt-6 px-7 py-3 bg-white text-black text-sm font-semibold rounded-full shadow-xl">
+									See Our Latest Makeovers →
+								</motion.button>
+							</Link>
+						</motion.div>
+					)}
+				</AnimatePresence>
+			</div>
+
+			{/* Right-side dots */}
+			<div className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 flex flex-col gap-2 z-30">
+				{slides.map((s, i) => (
+					<button
+						key={s.id}
+						onClick={() => setIndex(i)}
+						className={`h-2.5 w-2.5 rounded-full transition ${
+							i === index ? "bg-white" : "bg-white/40"
+						}`}
+					/>
+				))}
 			</div>
 		</section>
 	);
