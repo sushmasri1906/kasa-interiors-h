@@ -15,7 +15,7 @@ export async function POST(req: Request) {
 
 		const res = await resend.emails.send({
 			from: "Kasa Interiors <onboarding@resend.dev>",
-			to: "sushmasri1906@gmail.com", // 🔴 change this
+			to: "kasainteriors23@gmail.com", // 🔴 change this
 			subject: "New Consultation Request",
 			text: `
 New Consultation Request
