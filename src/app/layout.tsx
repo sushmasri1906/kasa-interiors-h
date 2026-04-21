@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
 import WhatsAppButton from "./components/WhatsappButton";
+import MobileBottomCTA from "@/app/components/common/MobileBottomCTA";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -22,19 +23,26 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
 	children,
-}: Readonly<{
+}: {
 	children: React.ReactNode;
-}>) {
+}) {
 	return (
 		<html lang="en">
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-				<main className="flex max-w-screen flex-col bg-slate-50 text-slate-900">
+				{/* MAIN CONTENT */}
+				<main className="flex flex-col bg-slate-50 text-slate-900">
 					<Navbar />
-					{children}
-					<WhatsAppButton />
+
+					{/* 🔥 IMPORTANT: padding bottom for CTA */}
+					<div className="pb-20 md:pb-0">{children}</div>
+
 					<Footer />
 				</main>
+
+				{/* FLOATING ELEMENTS (OUTSIDE MAIN) */}
+				<WhatsAppButton />
+				<MobileBottomCTA />
 			</body>
 		</html>
 	);
