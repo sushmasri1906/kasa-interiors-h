@@ -12,8 +12,8 @@ type MediaItem = {
 const media: MediaItem[] = [
 	{
 		id: 1,
-		type: "video",
-		url: "https://res.cloudinary.com/dhvcegycq/video/upload/v1774532898/Kasa_interiors_1-2_u61qxw.mov",
+		type: "image",
+		url: "https://res.cloudinary.com/qe3svsex/image/upload/v1783358023/3d-rendering-loft-luxury-living-room-with-shelf-near-dining-table.jpg_1_ogzdkw.jpg",
 	},
 	{
 		id: 2,
@@ -27,26 +27,67 @@ const media: MediaItem[] = [
 	},
 	{
 		id: 4,
+		type: "image",
+		url: "https://res.cloudinary.com/qe3svsex/image/upload/v1783338579/pexels-artbovich-8089196.jpg_fwqinb.jpg",
+	},
+	{
+		id: 5,
+		type: "image",
+		url: "https://res.cloudinary.com/qe3svsex/image/upload/v1783338578/pexels-artbovich-8089188.jpg_lxqg79.jpg",
+	},
+	{
+		id: 6,
+		type: "image",
+		url: "https://res.cloudinary.com/qe3svsex/image/upload/v1783338578/pexels-artbovich-8089185.jpg_abntei.jpg",
+	},
+	{
+		id: 7,
+		type: "image",
+		url: "https://res.cloudinary.com/qe3svsex/image/upload/v1783338577/minimalist-kitchen-interior-design.jpg_qbclma.jpg",
+	},
+	{
+		id: 8,
+		type: "image",
+		url: "https://res.cloudinary.com/qe3svsex/image/upload/v1783338577/pexels-artbovich-8089185_-_Copy.jpg_u1ztyh.jpg",
+	},
+	{
+		id: 9,
+		type: "video",
+		url: "https://res.cloudinary.com/dhvcegycq/video/upload/v1774532898/Kasa_interiors_1-2_u61qxw.mov",
+	},
+
+	{
+		id: 10,
 		type: "video",
 		url: "https://res.cloudinary.com/dhvcegycq/video/upload/v1774528762/PXL_20260317_092320119_ro1zdm.mp4",
 	},
 	{
-		id: 5,
+		id: 11,
+		type: "image",
+		url: "https://res.cloudinary.com/qe3svsex/image/upload/v1783338533/kitchen_-_Copy.jpg_ralotl.jpg",
+	},
+	{
+		id: 12,
+		type: "image",
+		url: "https://res.cloudinary.com/qe3svsex/image/upload/v1783338488/cozy-lively-home-interior-design.jpg_pmke9s.jpg",
+	},
+	{
+		id: 13,
 		type: "video",
 		url: "https://res.cloudinary.com/dhvcegycq/video/upload/v1774528755/PXL_20260317_071233101_wkp1et.mp4",
 	},
 	{
-		id: 6,
+		id: 14,
 		type: "video",
 		url: "https://res.cloudinary.com/dhvcegycq/video/upload/v1774528745/PXL_20260317_092916340_tdrffa.mp4",
 	},
 	{
-		id: 7,
+		id: 15,
 		type: "video",
 		url: "https://res.cloudinary.com/dhvcegycq/video/upload/v1774528738/PXL_20260317_073911933_gb2yuk.mp4",
 	},
 	{
-		id: 8,
+		id: 16,
 		type: "video",
 		url: "https://res.cloudinary.com/dhvcegycq/video/upload/v1774528712/PXL_20260317_081309566_pnowpq.mp4",
 	},
