@@ -9,6 +9,7 @@ import WhyKasa from "./components/Home/whyKasa";
 import Steps from "./components/Home/Steps";
 // import BrandsWeUse from "./components/Home/BrandsWeUse";
 import InteriorSolutions from "./components/Home/InteriorSolutions";
+import ManufacturingSection from "./components/Home/ManufacturingSection";
 // import FeaturedProjects from "./components/project/FeaturedProjects";
 
 function page() {
@@ -16,7 +17,9 @@ function page() {
 		<>
 			<Hero />
 			<AboutPreview />
+
 			<CoveredFields />
+			<ManufacturingSection />
 			<HowItWorks />
 			<WhyChooseKasa />
 			<Reviews />

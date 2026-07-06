@@ -40,49 +40,90 @@ export default function Address() {
 					</div>
 
 					{/* Main content */}
-					<div className="mt-6 grid gap-6 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] md:items-start">
-						{/* Address block */}
-						<div className="flex items-start gap-4">
-							<div className="mt-0.5 flex h-11 w-11 items-center justify-center rounded-2xl bg-[#eef6f5] shadow-sm ring-1 ring-slate-200/70">
-								<FiMapPin className="h-5 w-5" style={{ color: ACCENT }} />
-							</div>
+					{/* Main content */}
+					<div className="mt-6 grid gap-6 lg:grid-cols-2">
+						{/* Studio */}
+						<div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+							<div className="flex items-start gap-4">
+								<div className="mt-0.5 flex h-11 w-11 items-center justify-center rounded-2xl bg-[#eef6f5] shadow-sm">
+									<FiMapPin className="h-5 w-5" style={{ color: ACCENT }} />
+								</div>
 
-							<div className="space-y-1 text-sm text-slate-800">
-								<p className="font-semibold text-slate-900">
-									Kasa Interiors Studio
-								</p>
-								<p className="text-[0.9rem] leading-relaxed text-slate-700">
-									Flat No. 301, Grecious Homes
-									<br />
-									Mytri Nagar, Madinaguda
-									<br />
-									Miyapur, Hyderabad – 500049
-									<br />
-									Telangana, India
-								</p>
+								<div>
+									<p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+										Studio
+									</p>
+
+									<h3 className="mt-1 text-lg font-semibold text-slate-900">
+										Kasa Interiors Studio
+									</h3>
+
+									<p className="mt-3 text-[0.9rem] leading-relaxed text-slate-700">
+										Flat No. 301, Grecious Homes
+										<br />
+										Mytri Nagar, Madinaguda
+										<br />
+										Miyapur, Hyderabad – 500049
+										<br />
+										Telangana, India
+									</p>
+								</div>
 							</div>
 						</div>
 
-						{/* Appointment info */}
-						<div className="rounded-2xl bg-slate-50/80 p-4 text-[0.9rem] text-slate-600 shadow-sm ring-1 ring-slate-200/70">
-							<div className="mb-2 inline-flex items-center gap-2 text-[0.8rem] font-semibold uppercase tracking-[0.16em] text-slate-500">
-								<FiClock className="h-4 w-4" style={{ color: ACCENT }} />
-								<span>Studio Visits</span>
+						{/* Factory */}
+						<div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+							<div className="flex items-start gap-4">
+								<div className="mt-0.5 flex h-11 w-11 items-center justify-center rounded-2xl bg-[#eef6f5] shadow-sm">
+									<FiMapPin className="h-5 w-5" style={{ color: ACCENT }} />
+								</div>
+
+								<div>
+									<p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+										Factory
+									</p>
+
+									<h3 className="mt-1 text-lg font-semibold text-slate-900">
+										Manufacturing Unit
+									</h3>
+
+									<p className="mt-3 text-[0.9rem] leading-relaxed text-slate-700">
+										<strong>B-25</strong>
+										<br />
+										BHEL Ancillary Industrial Estate
+										<br />
+										TGIIC, Ramachandrapuram
+										<br />
+										Hyderabad, Rangareddy
+										<br />
+										Telangana – 502032
+									</p>
+								</div>
 							</div>
-							<p className="leading-relaxed">
-								Our studio is open for consultations{" "}
-								<span className="font-medium text-slate-900">
-									by appointment
-								</span>
-								. We’ll walk you through{" "}
-								<span className="font-medium">
-									materials, finishes, layouts and ideas
-								</span>{" "}
-								for your space so you can see and feel options before deciding.
-							</p>
 						</div>
 					</div>
 
+					{/* Appointment info */}
+					<div className="mt-6 rounded-2xl bg-slate-50/80 p-5 text-[0.9rem] text-slate-600 shadow-sm ring-1 ring-slate-200/70">
+						<div className="mb-2 inline-flex items-center gap-2 text-[0.8rem] font-semibold uppercase tracking-[0.16em] text-slate-500">
+							<FiClock className="h-4 w-4" style={{ color: ACCENT }} />
+							<span>Visits</span>
+						</div>
+
+						<p className="leading-relaxed">
+							Visit our{" "}
+							<span className="font-semibold text-slate-900">
+								design studio
+							</span>
+							for consultations, material selection and project discussions, or
+							schedule a visit to our{" "}
+							<span className="font-semibold text-slate-900">
+								manufacturing facility
+							</span>{" "}
+							to experience our in-house production process and quality
+							standards.
+						</p>
+					</div>
 					{/* Small footnote */}
 					<p className="mt-5 text-[0.78rem] text-slate-500">
 						Parking assistance is available near the building. Exact location &
