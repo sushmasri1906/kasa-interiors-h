@@ -2,8 +2,9 @@
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import type { Variants } from "framer-motion";
 
-import { motion, AnimatePresence, type Variants } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -12,27 +13,27 @@ import Slider from "react-slick";
 const slides = [
 	{
 		id: 0,
+		title: `SPACES THAT INSPIRE EVERY DAY`,
+		subtitle:
+			"Elegant workspaces & commercial interiors that elevate your brand.",
+		image:
+			"https://res.cloudinary.com/qe3svsex/image/upload/v1783338488/cozy-lively-home-interior-design.jpg_pmke9s.jpg",
+	},
+	{
+		id: 1,
 		title: `YOUR HOME. YOUR STORY. OUR DESIGN`,
 		subtitle:
 			"We design interiors that feel personal, warm, and unforgettable.",
 		image:
-			"https://res.cloudinary.com/djthwunnh/image/upload/v1764151955/villa-HD_ywgpac.jpg",
+			"https://res.cloudinary.com/qe3svsex/image/upload/v1783338577/minimalist-kitchen-interior-design.jpg_qbclma.jpg",
 	},
 	{
-		id: 1,
+		id: 2,
 		title: `DESIGNS THAT FEEL LIKE YOU`,
 		subtitle:
 			"Modern, functional and timeless interiors built around your lifestyle.",
 		image:
 			"https://res.cloudinary.com/djthwunnh/image/upload/v1764151915/pexels-dayvison-de-oliveira-silva-5733617-1920x1280_ckthe0.jpg",
-	},
-	{
-		id: 2,
-		title: `SPACES THAT INSPIRE EVERY DAY`,
-		subtitle:
-			"Elegant workspaces & commercial interiors that elevate your brand.",
-		image:
-			"https://res.cloudinary.com/dwsm6i6z9/image/upload/v1765433919/Int-Gallery-6_itxrkt.jpg",
 	},
 ];
 
