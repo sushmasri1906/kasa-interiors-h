@@ -21,6 +21,14 @@ const slides = [
 	},
 	{
 		id: 1,
+		title: "WHY WE HAVE OUR OWN MANUFACTURING UNIT",
+		subtitle:
+			"We manufacture because quality isn't outsourced—it's built into everything we create. Our in-house production ensures precision engineering, premium materials, strict quality control, faster delivery, and complete customization for every project.",
+		image:
+			"https://res.cloudinary.com/dgulr1hgd/image/upload/v1784623709/image_factory_tjwz0a.png",
+	},
+	{
+		id: 2,
 		title: `YOUR HOME. YOUR STORY. OUR DESIGN`,
 		subtitle:
 			"We design interiors that feel personal, warm, and unforgettable.",
@@ -138,22 +146,33 @@ export default function HeroBanner() {
 								{current.title}
 							</h1>
 
-							<p className="mt-4 max-w-lg text-sm text-white/90 drop-shadow-md sm:text-base md:text-lg">
+							<p className="mt-4 max-w-lg text-sm text-white  sm:text-base md:text-lg">
 								{current.subtitle}
 							</p>
 
 							{/* ✅ BUTTON → REDIRECTS TO GALLERY */}
-							<Link href="/gallery">
-								<motion.button
-									whileHover={{ scale: 1.05 }}
-									whileTap={{ scale: 0.96 }}
-									className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-slate-900 shadow-lg hover:bg-[#447f80] hover:text-white transition">
-									See Our Latest Makeovers →
-								</motion.button>
-							</Link>
+							<div className="mt-8 flex flex-wrap gap-4">
+								<Link href="#factory">
+									<motion.button
+										whileHover={{ scale: 1.05 }}
+										whileTap={{ scale: 0.96 }}
+										className="rounded-full bg-[#447f80] px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-[#366768]">
+										Visit Factory
+									</motion.button>
+								</Link>
+
+								<Link href="/gallery">
+									<motion.button
+										whileHover={{ scale: 1.05 }}
+										whileTap={{ scale: 0.96 }}
+										className="rounded-full border border-white/40 bg-black/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition hover:bg-white hover:text-slate-900">
+										Our Projects
+									</motion.button>
+								</Link>
+							</div>
 
 							{/* subtle overlay */}
-							<div className="absolute inset-0 bg-black/5 pointer-events-none" />
+							<div className="absolute inset-0 bg-black/30 pointer-events-none" />
 						</motion.div>
 					)}
 				</AnimatePresence>

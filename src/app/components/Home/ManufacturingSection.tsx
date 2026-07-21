@@ -27,7 +27,9 @@ export default function ManufacturingSection() {
 	};
 
 	return (
-		<section className="relative overflow-hidden bg-[#F7F6F3] py-28 lg:py-36">
+		<section
+			id="factory"
+			className="relative overflow-hidden bg-[#F7F6F3] py-28 lg:py-36">
 			{/* Background Accent */}
 
 			<div

@@ -17,7 +17,7 @@ const SERVICES = [
 		tagline: "Built around how you cook.",
 		desc: "Smart, ergonomic kitchens with durable finishes and efficient storage.",
 		image:
-			"https://res.cloudinary.com/djthwunnh/image/upload/v1764240653/Red-colour-modular-kitchens_ftp5b4.jpg",
+			"https://res.cloudinary.com/qe3svsex/image/upload/v1783338578/pexels-artbovich-8089188.jpg_lxqg79.jpg",
 		icon: GiKnifeFork,
 	},
 	{
